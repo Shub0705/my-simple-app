@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-one-deploy
+  namespace: posh
+  labels:
+    cello: duro
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      cello: duro
+  template:
+    metadata:
+      labels:
+        cello: duro
+    spec:
+      containers:
+        - name: shubham
+          image: shubhamdoc0705/my-simple:v1
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-one-service
+  namespace: posh
+spec:
+  selector:
+    cello: duro
+  type: NodePort
+  ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 80  
