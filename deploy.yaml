@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: shubham
-          image: shubhamdoc0705/my-simple:v1
+          image: IMAGE_NAME
           ports:
             - containerPort: 80
 
